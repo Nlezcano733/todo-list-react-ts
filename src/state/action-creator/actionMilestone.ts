@@ -1,24 +1,39 @@
-import { ActionTypes } from "../action-types/crud";
-import { Action } from "../action";
+import { MilestonesTypes } from "../action-types/crud";
+import { T_MilestoneAction } from '../action/T_MilestoneAction';
+import { Dispatch } from "react";
 import { milestones } from "../types/context";
 
 
-export const addMilestone = (milestone: milestones): Action<milestones> => {
-  return {
-    type: ActionTypes.CREATE,
-    payload: milestone
+export const addMilestones = (milestone: milestones) => {
+  return (dispatch: Dispatch<T_MilestoneAction>) => {
+    dispatch({
+      type: MilestonesTypes.CREATE,
+      payload: milestone
+    });
   };
 };
 
-export const getMilestones = (): Action<void> => {
-  return {
-    type: ActionTypes.READ,
+export const getMilestones = () => {
+  return (dispatch: Dispatch<T_MilestoneAction>) => {
+    dispatch({
+      type: MilestonesTypes.READ
+    });
   };
 };
 
-export const deleteMilestone = (id: string): Action<string> => {
-  return {
-    type: ActionTypes.REMOVE,
-    payload: id
+export const deleteMilestones = (id: string) => {
+  return (dispatch: Dispatch<T_MilestoneAction>) => {
+    dispatch({
+      type: MilestonesTypes.REMOVE,
+      payload: id
+    });
+  };
+};
+
+export const clearMilestones = () => {
+  return (dispatch: Dispatch<T_MilestoneAction>) => {
+    dispatch({
+      type: MilestonesTypes.CLEAR
+    });
   };
 };

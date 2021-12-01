@@ -1,40 +1,38 @@
-import { ActionTypes } from "../action-types/crud";
-import { Action } from "../action";
+import { TasksTypes } from "../action-types/crud";
+import { Dispatch } from "react";
+import { T_ActionTask } from "../action/T_TaskAction";
 import { tasks } from "../types/context";
 
-export const addTask = (task: tasks): Action<tasks> => {
-  return {
-    type: ActionTypes.CREATE,
-    payload: task
+export const addTasks = (task: tasks) => {
+  return (dispatch: Dispatch<T_ActionTask>) => {
+    dispatch({
+      type: TasksTypes.CREATE,
+      payload: task
+    });
   };
 };
 
-export const getTask = (): Action<void> => {
-  return {
-    type: ActionTypes.READ,
+export const getTasks = () => {
+  return (dispatch: Dispatch<T_ActionTask>) => {
+    dispatch({
+      type: TasksTypes.READ
+    });
   };
 };
 
-export const updateTask = (task: tasks): Action<tasks> => {
-  return {
-    type: ActionTypes.UPDATE,
-    payload: task
+export const deleteTasks = (id: string) => {
+  return (dispatch: Dispatch<T_ActionTask>) => {
+    dispatch({
+      type: TasksTypes.REMOVE,
+      payload: id
+    });
   };
 };
 
-export const deleteTask = (id: string): Action<string> => {
-  return {
-    type: ActionTypes.REMOVE,
-    payload: id
+export const clearTasks = () => {
+  return (dispatch: Dispatch<T_ActionTask>) => {
+    dispatch({
+      type: TasksTypes.CLEAR
+    });
   };
 };
-
-
-// export const updateTask = (task: number) => {
-//   return (dispatch: Dispatch<Action>) => {
-//     dispatch({
-//       type: ActionTypes.UPDATE,
-//       payload: task
-//     });
-//   };
-// };

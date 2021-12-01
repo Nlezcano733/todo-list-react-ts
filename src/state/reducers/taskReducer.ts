@@ -1,16 +1,17 @@
-import { ActionTypes } from "../action-types/crud";
-import { Action } from "../action";
+import { TasksTypes } from "../action-types/crud";
 
 import { tasks } from "../types/context";
+import { initialState } from "../initialState";
+import { T_ActionTask } from "../action/T_TaskAction";
 
-const taskReducer = (state: tasks[] = [], action: Action<tasks>): tasks[] => {
+const taskReducer = (state: tasks[] = initialState.tasks, action: T_ActionTask): tasks[] => {
   switch (action.type) {
-    case ActionTypes.CREATE:
+    case TasksTypes.CREATE:
       return [...state, action.payload];
-    case ActionTypes.REMOVE:
+    case TasksTypes.REMOVE:
       return state.filter(s => s.id !== action.payload);
-    case ActionTypes.UPDATE:
-      return [...state, action.payload];
+    case TasksTypes.CLEAR:
+      return [];
     default:
       return state;
   }
