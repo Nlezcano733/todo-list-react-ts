@@ -1,19 +1,10 @@
-import React, { Dispatch } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { I_initialState } from '../../state/interfaces/I_initialState';
+import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { milestones, tasks } from '../../state/types/context';
-import { actionMilestone, actionTask } from '../../state';
 
 type Props = {
 };
 
-
-
 const Canvas: React.FC<Props> = (props: Props) => {
-  const milestones = useSelector<I_initialState>(state => state);
-  const dispatch = useDispatch();
-
 
   return (
     <DragDropContext onDragEnd={(res) => console.log(res)}>

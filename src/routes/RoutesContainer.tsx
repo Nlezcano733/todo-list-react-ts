@@ -1,6 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import CalendarContainer from './calendar/CalendarContainer';
+import DashboardContainer from './dashboard/DashboardContainer';
+import SprintsContainer from './sprints/SprintsContainer';
 import TasksContainer from './tasks/TasksContainer';
+import TeamsContainer from './teams/TeamsContainer';
 
 type Props = {
 };
@@ -8,12 +12,13 @@ type Props = {
 const RoutesContainer: React.FC<Props> = (props) => {
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/dashboard" />
-        <Route path="/tasks" element={<TasksContainer />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/dashboard" element={<DashboardContainer />} />
+      <Route path="/tasks" element={<TasksContainer />} />
+      <Route path="/sprints" element={<SprintsContainer />} />
+      <Route path="/teams" element={<TeamsContainer />} />
+      <Route path="/calendar" element={<CalendarContainer />} />
+    </Routes>
   );
 };
 

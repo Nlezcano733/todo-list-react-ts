@@ -11,7 +11,7 @@ const Layout: React.FC<Props> = (props) => {
     <>
       <Navbar />
       <main className="grid grid-cols-12">
-        <aside className="col-span-2 bg-gray-200">
+        <aside className="col-span-2 flex flex-col justify-between pb-4 bg-gray-200">
           <Sidebar />
         </aside>
         <section className="col-span-10 ">

@@ -17,3 +17,9 @@ code {
 	display: grid;
 	grid-template-rows: 60px auto;
 }
+
+/*  -- VARIABLES --  */
+
+:root {
+	--transtion: all 200ms linear;
+}
